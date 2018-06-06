@@ -16,6 +16,8 @@
 						http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
 						http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring.xsd">
 
+    <import resource="applicationContext-redis.xml"/>
+
     <mybatis:scan base-package="com.wxp.dao.**.mappers"/>
 
     <!-- mybatis配置开始 -->
