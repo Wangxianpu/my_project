@@ -16,9 +16,9 @@ public interface BaseService<T> {
 
     /**
      * 删除
-     * @param obj
+     * @param id
      */
-    void deleteById(Object obj);
+    void deleteById(String id);
 
     /**
      * 更新

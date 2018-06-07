@@ -38,8 +38,8 @@ public class UserServiceImpl implements UserService {
         userDtoMapper.insertSelective(userDto);
     }
 
-    public void deleteById(Object obj) {
-        userDtoMapper.deleteByPrimaryKey(Integer.valueOf(obj.toString()));
+    public void deleteById(String id) {
+        userDtoMapper.deleteByPrimaryKey(Integer.valueOf(id));
     }
 
     public void update(UserDto userDto) {

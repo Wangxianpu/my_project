@@ -21,7 +21,7 @@ public class UserController {
     @RequestMapping("/getUser.do")
     public UserDto getUser(){
         UserDto user = userApi.getUser(1);
-        System.out.println("username:"+user.getUsername()+"password:"+user.getPassword());
+        System.out.println("username:"+user.getUserName()+"password:"+user.getPassword());
         return user;
     }
 
