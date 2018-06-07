@@ -20,10 +20,10 @@ public class UserTest {
     @Test
     public void testUser(){
 //        UserDto userDto = new UserDto();
-//        userDto.setUsername("1-1");
-//        userDto.setNickname("1-2");
-//        userDto.setPassword("1-3");
+//        userDto.setUserName("2-1");
+//        userDto.setNickName("2-2");
+//        userDto.setPassword("2-3");
         UserDto userDto =  userDtoMapper.selectByPrimaryKey(1);
-        System.out.println("最後輸出結果為："+userDto.getUsername());
+        System.out.println("最後輸出結果為："+userDto.getUserName());
     }
 }

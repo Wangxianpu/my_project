@@ -3,43 +3,85 @@
 <mapper namespace="com.wxp.dao.user.mappers.UserDtoMapper">
   <resultMap id="BaseResultMap" type="com.wxp.dto.user.UserDto">
     <id column="id" jdbcType="INTEGER" property="id" />
-    <result column="username" jdbcType="VARCHAR" property="username" />
+    <result column="username" jdbcType="VARCHAR" property="userName" />
     <result column="password" jdbcType="VARCHAR" property="password" />
-    <result column="nickname" jdbcType="VARCHAR" property="nickname" />
+    <result column="nickname" jdbcType="VARCHAR" property="nickName" />
   </resultMap>
 
   <sql id="Base_Column_List">
     id, username, password, nickname
   </sql>
+
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
     from t_user
     where id = #{id,jdbcType=INTEGER}
   </select>
+
+  <select id="selectOne" parameterType="com.wxp.dto.user.UserDto" resultMap="BaseResultMap">
+      select
+    <include refid="Base_Column_List" />
+    FROM t_user
+    where 1=1
+    <if test="id != null">
+      AND id = #{id,jdbcType=INTEGER}
+    </if>
+    <if test="userName != null">
+      AND username = #{userName,jdbcType=VARCHAR}
+    </if>
+    <if test="password != null">
+      AND password = #{password,jdbcType=VARCHAR}
+    </if>
+    <if test="nickName != null">
+      AND nickname = #{nickName,jdbcType=VARCHAR}
+    </if>
+  </select>
+
+  <select id="selectList" parameterType="com.wxp.dto.user.UserDto" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    FROM t_user
+    where 1=1
+    <if test="id != null">
+      AND id = #{id,jdbcType=INTEGER}
+    </if>
+    <if test="userName != null">
+      AND username = #{userName,jdbcType=VARCHAR}
+    </if>
+    <if test="password != null">
+      AND password = #{password,jdbcType=VARCHAR}
+    </if>
+    <if test="nickName != null">
+      AND nickname = #{nickName,jdbcType=VARCHAR}
+    </if>
+  </select>
+
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from t_user
     where id = #{id,jdbcType=INTEGER}
   </delete>
+
   <insert id="insert" parameterType="com.wxp.dto.user.UserDto">
     insert into t_user (id, username, password,
       nickname)
-    values (#{id,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
-      #{nickname,jdbcType=VARCHAR})
+    values (#{id,jdbcType=INTEGER}, #{userName,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR},
+      #{nickName,jdbcType=VARCHAR})
   </insert>
+
   <insert id="insertSelective" parameterType="com.wxp.dto.user.UserDto">
     insert into t_user
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
         id,
       </if>
-      <if test="username != null">
+      <if test="userName != null">
         username,
       </if>
       <if test="password != null">
         password,
       </if>
-      <if test="nickname != null">
+      <if test="nickName != null">
         nickname,
       </if>
     </trim>
@@ -47,37 +89,39 @@
       <if test="id != null">
         #{id,jdbcType=INTEGER},
       </if>
-      <if test="username != null">
-        #{username,jdbcType=VARCHAR},
+      <if test="userName != null">
+        #{userName,jdbcType=VARCHAR},
       </if>
       <if test="password != null">
         #{password,jdbcType=VARCHAR},
       </if>
-      <if test="nickname != null">
-        #{nickname,jdbcType=VARCHAR},
+      <if test="nickName != null">
+        #{nickName,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
+
   <update id="updateByPrimaryKeySelective" parameterType="com.wxp.dto.user.UserDto">
     update t_user
     <set>
-      <if test="username != null">
-        username = #{username,jdbcType=VARCHAR},
+      <if test="userName != null">
+        username = #{userName,jdbcType=VARCHAR},
       </if>
       <if test="password != null">
         password = #{password,jdbcType=VARCHAR},
       </if>
-      <if test="nickname != null">
-        nickname = #{nickname,jdbcType=VARCHAR},
+      <if test="nickName != null">
+        nickname = #{nickName,jdbcType=VARCHAR},
       </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
+
   <update id="updateByPrimaryKey" parameterType="com.wxp.dto.user.UserDto">
     update t_user
-    set username = #{username,jdbcType=VARCHAR},
+    set username = #{userName,jdbcType=VARCHAR},
       password = #{password,jdbcType=VARCHAR},
-      nickname = #{nickname,jdbcType=VARCHAR}
+      nickname = #{nickName,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

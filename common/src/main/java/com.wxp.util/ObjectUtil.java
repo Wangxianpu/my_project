@@ -3,6 +3,7 @@ package com.wxp.util;
 import org.apache.commons.collections.map.HashedMap;
 
 import java.lang.reflect.Field;
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -19,7 +20,7 @@ public class ObjectUtil {
      * @throws IllegalAccessException
      */
     public static Map<String,String> parseObj2Map(Object obj) throws IllegalAccessException {
-        Map<String,String> map = new HashedMap();
+        Map<String,String> map = new HashMap<String,String>();
 
         //获得所有的属性
         Field[] fields = obj.getClass().getDeclaredFields();

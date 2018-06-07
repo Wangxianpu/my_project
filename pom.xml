@@ -15,6 +15,7 @@
         <module>provider</module>
         <module>api</module>
         <module>webx</module>
+        <module>common</module>
     </modules>
 
     <properties>

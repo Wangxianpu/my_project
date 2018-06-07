@@ -7,6 +7,7 @@ import com.wxp.common.RedisUtilService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -31,5 +32,25 @@ public class UserServiceImpl implements UserService {
             System.out.println("属性:"+entry.getKey()+","+"值:"+entry.getValue());
         }
         return user;
+    }
+
+    public void add(UserDto userDto) {
+        userDtoMapper.insertSelective(userDto);
+    }
+
+    public void deleteById(Object obj) {
+        userDtoMapper.deleteByPrimaryKey(Integer.valueOf(obj.toString()));
+    }
+
+    public void update(UserDto userDto) {
+        userDtoMapper.updateByPrimaryKeySelective(userDto);
+    }
+
+    public UserDto selectOne(UserDto userDto) {
+        return userDtoMapper.selectOne(userDto);
+    }
+
+    public List<UserDto> selectList(UserDto userDto) {
+        return userDtoMapper.selectList(userDto);
     }
 }
