@@ -3,9 +3,11 @@ package com.wxp.user.service.impl;
 import com.wxp.dao.user.mappers.UserDtoMapper;
 import com.wxp.dto.user.UserDto;
 import com.wxp.user.service.UserService;
-import com.wxp.util.RedisUtil;
+import com.wxp.common.RedisUtilService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+
+import java.util.Map;
 
 /**
  * @Author : shampoowang
@@ -19,11 +21,15 @@ public class UserServiceImpl implements UserService {
     private UserDtoMapper userDtoMapper;
 
     @Autowired
-    private RedisUtil redisUtil;
+    private RedisUtilService redisUtilService;
 
     public UserDto getUser(int id) {
         UserDto user =  userDtoMapper.selectByPrimaryKey(id);
-        redisUtil.set("t_user_"+id,user.getNickname(),user.getUsername(),user.getPassword());
+        redisUtilService.set("t_user_"+id,user);
+        Map<Object,Object> map = redisUtilService.getMap("t_user_"+id);
+        for(Map.Entry<Object,Object> entry : map.entrySet()){
+            System.out.println("属性:"+entry.getKey()+","+"值:"+entry.getValue());
+        }
         return user;
     }
 }

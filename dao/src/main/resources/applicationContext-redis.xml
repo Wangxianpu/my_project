@@ -52,8 +52,6 @@
                 class="org.springframework.data.redis.serializer.JdkSerializationRedisSerializer" />
     </property>
     </bean>
-    <!-- 自定义的redis工具类，用于setter，getter -->
-    <bean id="redisTemplateUtils" class="com.wxp.util.RedisUtil">
-    <property name="redisTemplate" ref="redisTemplate" />
-    </bean>
+    <!-- 自定义的redis服务 -->
+    <bean id="redisTemplateUtils" class="com.wxp.common.RedisUtilService"/>
 </beans>
