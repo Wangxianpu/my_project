@@ -25,7 +25,7 @@ public class UserServiceImpl implements UserService {
     private RedisUtilService redisUtilService;
 
     public UserDto getUser(int id) {
-        UserDto user =  userDtoMapper.selectByPrimaryKey(id);
+        UserDto user =  userDtoMapper.selectByPrimaryKey(String.valueOf(id));
         redisUtilService.set("t_user_"+id,user);
         Map<Object,Object> map = redisUtilService.getMap("t_user_"+id);
         for(Map.Entry<Object,Object> entry : map.entrySet()){
@@ -39,7 +39,7 @@ public class UserServiceImpl implements UserService {
     }
 
     public void deleteById(String id) {
-        userDtoMapper.deleteByPrimaryKey(Integer.valueOf(id));
+        userDtoMapper.deleteByPrimaryKey(id);
     }
 
     public void update(UserDto userDto) {

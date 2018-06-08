@@ -33,15 +33,16 @@ public interface BaseMapper<T> {
      */
     int updateByPrimaryKey(T t);
     /**
-     * 查询单个
-     * @param t
+     * 根据id删除元素
+     * @param id
      * @return
      */
-    T selectOne(T t);
+    int deleteByPrimaryKey(String id);
+
     /**
-     * 依据某些条件
-     * @param t
+     * 根据id查询元素
+     * @param id
      * @return
      */
-    List<T> selectList(T t);
+    T selectByPrimaryKey(String id);
 }
