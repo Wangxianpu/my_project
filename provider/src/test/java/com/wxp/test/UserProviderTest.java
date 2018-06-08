@@ -23,6 +23,6 @@ public class UserProviderTest {
     @Test
     public void test(){
         UserDto userDto = userApi.getUser(1);
-        System.out.println("username:"+userDto.getUsername()+",password:"+userDto.getPassword());
+        System.out.println("username:"+userDto.getUserName()+",password:"+userDto.getPassword());
     }
 }

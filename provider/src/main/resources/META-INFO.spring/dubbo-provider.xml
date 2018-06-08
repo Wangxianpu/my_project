@@ -20,8 +20,11 @@
 
     <dubbo:protocol name="dubbo" port="20880" />
 
-    <!-- 资产相关服务 -->
+    <!-- 用户相关服务 -->
     <dubbo:service interface="com.wxp.user.api.UserApi" timeout="60000" ref="userProvider" />
+
+    <!-- 联系人相关服务 -->
+    <dubbo:service interface="com.wxp.contact.api.ContactApi" timeout="60000" ref="contactProvider" />
 
 
 </beans>

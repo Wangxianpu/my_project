@@ -16,7 +16,6 @@
         <module>api</module>
         <module>webx</module>
         <module>common</module>
-        <module>mybatis-generator</module>
 
     </modules>
 
