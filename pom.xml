@@ -29,7 +29,7 @@
         <mock.version>2.0.8</mock.version>
         <mybatis.version>3.3.1</mybatis.version>
         <mybatis-spring.version>1.2.2</mybatis-spring.version>
-        <dubbo.version>2.10.1</dubbo.version>
+        <dubbo.version>2.5.3</dubbo.version>
     </properties>
 
     <dependencies>
@@ -103,7 +103,7 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-test</artifactId>
-            <version>4.3.14.RELEASE</version>
+            <version>${spring.version}</version>
         </dependency>
 
 
@@ -145,26 +145,10 @@
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
-            <artifactId>spring-jdbc</artifactId>
-            <version>${spring.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
             <artifactId>spring-aspects</artifactId>
             <version>${spring.version}</version>
         </dependency>
 
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-test</artifactId>
-            <version>${spring.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-context-support</artifactId>
-            <version>${spring.version}</version>
-        </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-jms</artifactId>
